@@ -1,0 +1,19 @@
+.productContainer {
+  background-color: var(--item-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  margin-bottom: 1vw;
+  color: var(--text-primary);
+  font-weight: bold;
+  border-radius: 1vw;
+}
+
+button {
+  background-color: var(--text-primary);
+  color: white;
+  padding: 0.5vw;
+  border-radius: 0.5vw;
+}

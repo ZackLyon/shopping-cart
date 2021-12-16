@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { nanoid } from 'nanoid';
 import AddItem from '../../components/AddItem/AddItem';
 import List from '../../components/List/List';
+import './ShoppingList.css';
 
 const initialList = [
   {
@@ -20,13 +21,14 @@ const listReducer = (list, action) => {
     }
     case 'edit': {
       const productIndex = list.findIndex((item) => item.id === id);
+
       return list.map((item, index) =>
         productIndex === index ? { id, type, product } : item
       );
     }
     case 'delete': {
       const productIndex = list.findIndex((item) => item.id === id);
-      console.log(id, productIndex);
+
       return list.filter((_, index) => productIndex !== index);
     }
     default:
@@ -62,9 +64,11 @@ export default function ShoppingList() {
 
   return (
     <div>
-      <h1>Grocery List</h1>
-      <AddItem {...{ handleAdd }} />
-      <List {...{ list, handleEdit, handleDelete }} />
+      <header>Grocery List</header>
+      <main>
+        <AddItem {...{ handleAdd }} />
+        <List {...{ list, handleEdit, handleDelete }} />
+      </main>
     </div>
   );
 }
