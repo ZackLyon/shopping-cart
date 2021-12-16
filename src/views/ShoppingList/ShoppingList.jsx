@@ -19,13 +19,15 @@ const listReducer = (list, action) => {
       return [...list, { id, product, completed: false }];
     }
     case 'edit': {
-      console.log(id, type, product);
       const productIndex = list.findIndex((item) => item.id === id);
-      console.log(productIndex);
-      return list.map((item, index) => {
-        console.log(index);
-        return productIndex === index ? { id, type, product } : item;
-      });
+      return list.map((item, index) =>
+        productIndex === index ? { id, type, product } : item
+      );
+    }
+    case 'delete': {
+      const productIndex = list.findIndex((item) => item.id === id);
+      console.log(id, productIndex);
+      return list.filter((_, index) => productIndex !== index);
     }
     default:
       throw Error(`Apologies, customer, ${type} is not allowed.`);
@@ -51,11 +53,18 @@ export default function ShoppingList() {
     });
   };
 
+  const handleDelete = (id) => {
+    dispatch({
+      id,
+      type: 'delete',
+    });
+  };
+
   return (
     <div>
       <h1>Grocery List</h1>
       <AddItem {...{ handleAdd }} />
-      <List {...{ list, handleEdit }} />
+      <List {...{ list, handleEdit, handleDelete }} />
     </div>
   );
 }
