@@ -1,11 +1,12 @@
 import React from 'react';
+import Item from './Item.jsx';
 
-export default function List({ list }) {
+export default function List({ list, handleEdit }) {
   console.log(list);
   return (
     <div>
       {list.map(({ id, product }) => (
-        <div key={id}>{product}</div>
+        <Item key={id} {...{ id, product, handleEdit }} />
       ))}
     </div>
   );
