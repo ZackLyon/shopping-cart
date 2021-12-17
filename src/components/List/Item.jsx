@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import style from './Item.css';
 
-export default function Item({ id, product, handleEdit, handleDelete }) {
+export default function Item({
+  id,
+  completed,
+  product,
+  handleEdit,
+  handleDelete,
+  handleCompleted,
+}) {
   const [editable, setEditable] = useState(false);
   const [edited, setEdited] = useState(product);
 
@@ -12,6 +19,10 @@ export default function Item({ id, product, handleEdit, handleDelete }) {
 
   const onDelete = () => {
     handleDelete(id);
+  };
+
+  const onCompleted = () => {
+    handleCompleted(id);
   };
 
   return (
@@ -34,7 +45,12 @@ export default function Item({ id, product, handleEdit, handleDelete }) {
         </div>
       ) : (
         <div className={style.productContainer}>
-          <div>{product}</div>
+          <div
+            onClick={onCompleted}
+            className={completed ? style.isCompleted : style.notCompleted}
+          >
+            {product}
+          </div>
           <div>
             <button aria-label="edit button" onClick={() => setEditable(true)}>
               Edit

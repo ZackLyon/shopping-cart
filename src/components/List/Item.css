@@ -17,3 +17,12 @@ button {
   padding: 0.5vw;
   border-radius: 0.5vw;
 }
+
+.isCompleted {
+  text-decoration: line-through;
+  color: var(--text-primary);
+}
+
+.notCompleted {
+  font-size: 1.1em;
+}
