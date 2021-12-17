@@ -1,0 +1,32 @@
+:root {
+  --main-background: white;
+  --header: hsla(0, 0%, 10%, 1);
+  --text-primary: hsla(2, 55%, 55%, 1);
+  --item-background: rgb(255, 255, 255);
+  --mist-white: hsla(0, 0%, 10%, 1);
+}
+
+* {
+  margin: 0;
+}
+
+header {
+  height: 10vh;
+  color: var(--text-primary);
+  background-color: var(--header);
+  border-bottom: var(--text-primary) 0.5vh solid;
+  font-size: 5vh;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 3vw;
+}
+
+main {
+  background-color: var(--main-background);
+  height: 90vh;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  justify-content: center;
+}

@@ -1,0 +1,31 @@
+section {
+  background-color: var(--mist-white);
+  height: fit-content;
+  padding: 1vw;
+  border-radius: 5vw;
+  margin: 1vh;
+}
+
+h1 {
+  position: relative;
+  left: 1.2vw;
+  font-size: 2vw;
+  color: var(--text-primary);
+}
+
+form > input {
+  border: none;
+  border-radius: 1vw;
+  font-size: 1.5vw;
+  outline: none;
+  text-indent: 0.7vw;
+  color: var(--prussian-blue);
+}
+
+button {
+  margin-left: 0.2vw;
+  background-color: var(--text-primary);
+  color: white;
+  padding: 1vw;
+  border-radius: 0.5vw;
+}
